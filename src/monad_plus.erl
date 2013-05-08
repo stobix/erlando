@@ -16,7 +16,6 @@
 
 -module(monad_plus).
 
--export([behaviour_info/1]).
 -export([guard/2, msum/2, mfilter/3]).
 
 -ifdef(use_specs).
@@ -29,11 +28,8 @@
 -compile({parse_transform, do}).
 -compile({parse_transform, cut}).
 
-behaviour_info(callbacks) ->
-    [{mzero, 0},
-     {mplus, 2}];
-behaviour_info(_Other) ->
-    undefined.
+-callback mzero() -> any().
+-callback mplus(any(), any()) -> any().
 
 guard(Monad, true)  -> Monad:return(ok);
 guard(Monad, false) -> Monad:fail("").

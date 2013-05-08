@@ -16,7 +16,6 @@
 
 -module(monad).
 
--export([behaviour_info/1]).
 -export([join/2, sequence/2]).
 
 -ifdef(use_specs).
@@ -27,12 +26,9 @@
 
 -compile({parse_transform, do}).
 
-behaviour_info(callbacks) ->
-    [{'>>=',  2},
-     {return, 1},
-     {fail,   1}];
-behaviour_info(_Other) ->
-    undefined.
+-callback '>>='(any(), fun()) -> any().
+-callback return(any()) -> any().
+-callback fail(any()) -> any().
 
 join(Monad, X) ->
     do([Monad || Y <- X,
