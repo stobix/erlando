@@ -24,11 +24,10 @@
 -behaviour(monad_plus).
 -export([mzero/0, mplus/2]).
 
--ifdef(use_specs).
+
 -type(monad(A) :: [A]).
 -include("monad_specs.hrl").
 -include("monad_plus_specs.hrl").
--endif.
 
 %% Note that using a list comprehension is (obviously) cheating, but
 %% it's easier to read. The "real" implementation is also included for

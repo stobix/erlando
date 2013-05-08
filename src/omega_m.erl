@@ -35,11 +35,9 @@
 -behaviour(monad_plus).
 -export([mzero/0, mplus/2]).
 
--ifdef(use_specs).
 -type(monad(A) :: [A]).
 -include("monad_specs.hrl").
 -include("monad_plus_specs.hrl").
--endif.
 
 '>>='(X, Fun) -> diagonal([Fun(E) || E <- X]).
 

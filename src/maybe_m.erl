@@ -22,11 +22,9 @@
 -behaviour(monad_plus).
 -export([mzero/0, mplus/2]).
 
--ifdef(use_specs).
 -type(monad(A) :: {'just', A} | nothing).
 -include("monad_specs.hrl").
 -include("monad_plus_specs.hrl").
--endif.
 
 '>>='({just, X}, Fun) -> Fun(X);
 '>>='(nothing,  _Fun) -> nothing.

@@ -18,12 +18,10 @@
 
 -export([guard/2, msum/2, mfilter/3]).
 
--ifdef(use_specs).
 -type(monad(_A) :: any()). %% urm, don't know what to do here.
 -spec(guard/2 :: (atom(), boolean()) -> monad(_A)).
 -spec(msum/2 :: (atom(), [monad(A)]) -> monad(A)).
 -spec(mfilter/3 :: (atom(), fun ((A) -> boolean()), monad(A)) -> monad(A)).
--endif.
 
 -compile({parse_transform, do}).
 -compile({parse_transform, cut}).

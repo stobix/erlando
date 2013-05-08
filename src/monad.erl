@@ -18,15 +18,13 @@
 
 -export([join/2, sequence/2]).
 
--ifdef(use_specs).
 -type(monad(_A) :: any()). %% urm, don't know what to do here.
 -spec(join/2 :: (atom(), monad(monad(A))) -> monad(A)).
 -spec(sequence/2 :: (atom(), [monad(A)]) -> monad([A])).
--endif.
 
 -compile({parse_transform, do}).
 
--callback '>>='(any(), fun()) -> any().
+-callback '>>='(any(), fun((any()) -> any())) -> any().
 -callback return(any()) -> any().
 -callback fail(any()) -> any().
 
