@@ -19,8 +19,6 @@
 -export([join/2, sequence/2]).
 
 -type(monad(_A) :: any()). %% urm, don't know what to do here.
--spec(join/2 :: (atom(), monad(monad(A))) -> monad(A)).
--spec(sequence/2 :: (atom(), [monad(A)]) -> monad([A])).
 
 -compile({parse_transform, do}).
 
@@ -28,10 +26,11 @@
 -callback return(any()) -> any().
 -callback fail(any()) -> any().
 
+-spec join(atom(), monad(monad(A))) -> monad(A).
 join(Monad, X) ->
     do([Monad || Y <- X,
                  Y]).
-
+-spec sequence(atom(), [monad(A)]) -> monad([A]).
 sequence(Monad, Xs) ->
     sequence(Monad, Xs, []).
 

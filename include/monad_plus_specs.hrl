@@ -14,5 +14,5 @@
 %% Copyright (c) 2011-2013 VMware, Inc.  All rights reserved.
 %%
 
--spec(mzero/0 :: () -> monad(_A)).
--spec(mplus/2 :: (monad(A), monad(A)) -> monad(A)).
+-spec mzero() -> monad(_A).
+-spec mplus(monad(A), monad(A)) -> monad(A).

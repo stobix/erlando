@@ -24,7 +24,6 @@
 -behaviour(monad_plus).
 -export([mzero/0, mplus/2]).
 
-
 -type(monad(A) :: [A]).
 -include("monad_specs.hrl").
 -include("monad_plus_specs.hrl").

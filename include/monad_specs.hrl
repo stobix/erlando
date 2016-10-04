@@ -14,6 +14,6 @@
 %% Copyright (c) 2011-2013 VMware, Inc.  All rights reserved.
 %%
 
--spec(return/1 :: (A) -> monad(A)).
--spec(fail/1 :: (any()) -> monad(_A)).
--spec('>>='/2 :: (monad(A), fun ((A) -> monad(B))) -> monad(B)).
+-spec return(A) -> monad(A).
+-spec fail(any()) -> monad(_A).
+-spec '>>='(monad(A), fun ((A) -> monad(B))) -> monad(B).

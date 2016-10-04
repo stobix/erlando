@@ -23,6 +23,7 @@
 -export([mzero/0, mplus/2]).
 
 -type(monad(A) :: {'just', A} | nothing).
+
 -include("monad_specs.hrl").
 -include("monad_plus_specs.hrl").
 
